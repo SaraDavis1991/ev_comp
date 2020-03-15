@@ -1,0 +1,21 @@
+# Makefile for Writing Make Files Example
+
+# *****************************************************
+# Variables to control Makefile operation
+
+CXX = g++
+CXXFLAGS = -Wall -g -fPIC
+LDFLAGS = -static
+
+# ****************************************************
+# Targets needed to bring the executable up to date
+
+main: hillClimber.o eval.o
+	$(CXX) $(CXXFLAGS) -o hillClimber hillClimber.o eval.o
+# The main.o target can be written more simply
+
+main.o: hillClimber.cpp eval.o
+	$(CXX) $(CXXFLAGS) -c hillClimber.cpp
+
+
+
